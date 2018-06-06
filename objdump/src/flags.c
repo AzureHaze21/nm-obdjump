@@ -37,12 +37,12 @@ void print_flags(uint32_t flags)
 }
 
 uint32_t dump_bfd_flags(Elf64_Ehdr *ehdr,
-						Elf64_Shdr *shdr,
-						void *p_strtab)
+			Elf64_Shdr *shdr,
+			void *p_strtab)
 {
-		uint32_t	flags;
-		int			i;
-		const char	*p_str;
+		uint32_t flags;
+		int i;
+		const char *p_str;
 
 		flags ^= flags;
 		flags |= ehdr->e_phnum ? D_PAGED : 0;
