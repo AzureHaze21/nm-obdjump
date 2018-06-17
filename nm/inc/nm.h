@@ -24,18 +24,17 @@
 #define IS_LOWER(c)	((c > 96) && (c <= 122))
 #define IS_UPPER(c)	((c > 64 && c < 91) ? 1 : 0)
 #define TO_LOWER(c)	(IS_UPPER(c) ? c + 32 : c)
-#define IS_SPECIAL(c) (!((c > 64 && c < 91) ||			\
-						 (c > 96 && c < 123)) ? 1 : 0)
+#define IS_SPECIAL(c)	(!((c > 64 && c < 91) || (c > 96 && c < 123)) ? 1 : 0)
 
 typedef struct s_sym t_sym;
 
 struct s_sym
 {
-		unsigned addr;
-		unsigned char info;
-		char *name;
-		char type;
-		t_sym *next;
+	unsigned addr;
+	unsigned char info;
+	char *name;
+	char type;
+	t_sym *next;
 };
 
 void free_symlist(t_sym *head);
@@ -50,6 +49,6 @@ void push_sym(t_sym **head, unsigned addr, unsigned char type, char *name);
 void nm(void *map);
 void nm32(void *map);
 
-extern char	*g_input_file;
+extern char *g_input_file;
 
 #endif
